@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
+
+:root {
+  --background: #e7e0c9;
+  --foreground: #11324d;
+  --primary: #c1cfc0;
+  --secondary: #9ba8bf;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Overpass", serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.8;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 10rem;
+  padding: 1.2rem 2.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+  text-transform: uppercase;
+}
+.logo {
+  font-family: "Lilita One", serif;
+  font-size: 3.2rem;
+}
+.nav__menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3.2rem;
+}
+.main {
+  margin: 9.6rem auto;
+}
+h1 {
+  margin: 3.2rem 1.6rem;
+  font-size: 12.8rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  text-align: center;
+}
+
+#list__item {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.8rem;
+  z-index: 100;
+}
+
+.item {
+  box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.3);
+  background-color: var(--primary);
+  max-width: 30vw;
+  width: 100%;
+  height: 24rem;
+  transform-style: preserve-3d;
+  transition: transform 0.7s; /* Smooth flip animation */
+  cursor: pointer;
+  border-radius: 1rem;
+  z-index: 100;
+}
+
+.item__front,
+.item__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hides the back side when flipped */
+  padding: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.item__front {
+  transition: all 0.3s;
+}
+
+.item__back {
+  background-color: var(--secondary);
+  transform: rotateY(180deg); /* Starts flipped */
+}
+
+.item__front:hover {
+  background-color: var(--secondary);
+  color: var(--foreground);
+}
+.item__description,
+.item__index {
+  font-size: 1.6rem;
+}
+.item__action {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item__title {
+  font-size: 2.4rem;
+}
+
+.item__date {
+  font-size: 1.4rem;
+}
+
+.item__link:link,
+.item__link:visited {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.item__link:hover,
+.item__link:active {
+  transform: scale(1.1);
+}
+
+.item.flipped {
+  transform: rotateY(180deg);
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 25%;
+  }
+}
+@media (max-width: 1024px) {
+  html {
+    font-size: 50%;
+  }
+
+  .item {
+    max-width: 45vw;
+  }
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 37.5%;
+  }
+  .item {
+    max-width: 85vw;
+  }
+}
